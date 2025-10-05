@@ -1,4 +1,8 @@
 /* font-['Merriweather'] */
+@theme {
+  --breakpoint-xs: 330px;
+}
+
 
 *:root{
     --salmon : #ef9d71;
