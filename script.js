@@ -7,8 +7,8 @@ var t1 = gsap.timeline({
     scrollTrigger:{
         trigger:".home",
         start:"top top",
-        end:"bottom bottom",
-        scrub:3,
+        end:"bottom 90%",
+        scrub:1,
     },
 })
 
@@ -24,12 +24,12 @@ t1
 },'a')
 .to(".lft",{
     xPercent: -10,
-    scrub:2,
+    stagger : .03,
     ease: Power4
 }, 'b')
 .to(".rgt",{
     xPercent: 10,
-    scrub:2,
+    stagger : .03,
     ease: Power4
 }, 'b')
 
@@ -49,6 +49,62 @@ function slideanimation(){
 })
 }
 
+function namesanimation(){
+    
+document.querySelectorAll(".listelem")
+.forEach(function(el){
+    el.addEventListener("mousemove", function(dets){
+       gsap.to(this.querySelector(".pic"), { 
+        opacity:1,
+         ease:Power4 ,
+         x: gsap.utils.mapRange(0 ,window.innerWidth, -200 ,200 , dets.clientX),
+         duration : .5
+        })
+    })
+
+    el.addEventListener("mouseleave", function(dets){
+       gsap.to(this.querySelector(".pic"), {
+         opacity:0,
+          ease:Power4 ,
+           duration : .5
+        })
+
+    })
+})
+}
+function paraani(){
+    
+var clutter = ""
+document.querySelector(".textp")
+.textContent.split("")
+.forEach(function(e){
+    if( e=== " ") clutter += `<span>&nbsp;</span>`
+    clutter += `<span>${e}</span>`
+})
+document.querySelector(".textp").innerHTML = clutter
+gsap.set(".textp span", {opacity:.1})
+gsap.to(".textp span",{
+    scrollTrigger:{
+        trigger:".paragraph",
+        start:"top 80%",
+        end: "bottom 90%",
+        scrub:.2
+    },
+    opacity:1,
+    stagger:.3,
+    ease:Power4
+})
+
+}
+function locomo(){
+    (function () {
+        const locomotiveScroll = new LocomotiveScroll();
+})();
+}
+
 homepageanimation()
 slideanimation()
+namesanimation()
+paraani()
+locomo()
 

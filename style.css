@@ -20,6 +20,9 @@
 *::selection{
     background-color: var(--salmon);
 }
+body, html{
+    overflow-x: hidden;
+}
 
 body[theme = "black"]{
     background-color: black;
