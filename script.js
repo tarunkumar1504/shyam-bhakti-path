@@ -1,13 +1,15 @@
 function homepageanimation(){
     gsap.set(".innermarqtext", {
     scale:3
-})
+    })
 
-var t1 = gsap.timeline({
+let t1 = gsap.timeline({
     scrollTrigger:{
         trigger:".home",
         start:"top top",
-        end:"bottom 90%",
+        end:"bottom bottom",
+        pin: true,
+  pinSpacing: false,
         scrub:1,
     },
 })
@@ -41,6 +43,8 @@ function slideanimation(){
         trigger: ".page3",
         start: "top top",
         end:"bottom bottom",
+        pin: true,
+  pinSpacing: false,
         scrub:1,
     },
     xPercent: -200,
@@ -102,9 +106,34 @@ function locomo(){
 })();
 }
 
+function colorchangeanimation(){
+    document.querySelectorAll(".section")
+.forEach(function(e){
+    ScrollTrigger.create({
+        trigger:e,
+        start : "top 50%",
+        end: "bottom 50%",
+        onEnter:function(){
+            document.body.setAttribute("theme", e.dataset.color)
+        },
+        onEnterBack:function(){
+            document.body.setAttribute("theme", e.dataset.color)
+
+        }
+    })
+})
+}
+
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+  ScrollTrigger.refresh();
+});
+
+
 homepageanimation()
 slideanimation()
 namesanimation()
 paraani()
 locomo()
+colorchangeanimation()
 

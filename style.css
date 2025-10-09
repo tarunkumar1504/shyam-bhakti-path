@@ -22,6 +22,7 @@
 }
 body, html{
     overflow-x: hidden;
+    transition: background-color ease-out 0.5 ;
 }
 
 body[theme = "black"]{
