@@ -39,7 +39,7 @@ We welcome contributions to improve this project — add new features, optimize 
 ---
 
 ### 🪔 Live Demo
-[Coming Soon / Add Your Live URL Here]
+[(https://tarunkumar1504.github.io/shyam-bhakti-path/)]
 
 ---
 
